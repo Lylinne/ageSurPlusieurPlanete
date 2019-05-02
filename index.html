@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	
+
+	<script>
+		if (!Date.now) {
+  			Date.now = function now() {
+    		return new Date().getTime();
+  };
+}
+	var timeStampInMs = window.performance && window.performance.now && window.performance.timing && window.performance.timing.navigationStart ? window.performance.now() + window.performance.timing.navigationStart : Date.now();
+
+	console.log(timeStampInMs, Date.now());
+
+	var start = Date.now();
+
+	console.log("starting timer...");
+	// minuterie de démarage
+
+	setTimeout(function() {
+  	var millis = Date.now() - start;
+
+  	console.log("temps écoulé = " + Math.floor(millis/1000));
+  // resultat attendu : nombre de secondes écoulées = 3
+}, 3000);
+	</script>
+
+</body>
+</html>
+
